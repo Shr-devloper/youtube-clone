@@ -1,0 +1,61 @@
+.yt-header {
+  height: 56px;
+  background: #202020;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.yt-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.menu {
+  font-size: 20px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.yt-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.yt-center input {
+  width: 50%;
+  padding: 6px 10px;
+  border-radius: 2px 0 0 2px;
+  border: none;
+}
+
+.yt-center button {
+  padding: 6px 12px;
+  border: none;
+  background: #313131;
+  color: white;
+  cursor: pointer;
+}
+
+.yt-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.yt-right a {
+  color: white;
+  text-decoration: none;
+  border: 1px solid #3ea6ff;
+  padding: 6px 10px;
+}
