@@ -1,1 +1,17 @@
  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTg3YTkxODRiODdmYmNmYzZlOTIzMDMiLCJpYXQiOjE3NzA0OTg0MTAsImV4cCI6MTc3MTEwMzIxMH0.fZF-lHktNPHobn-XS_C-Qhp9VF3H4mRytfALnxiBb7w"
+
+
+
+
+
+ {
+  "_id": "6987ab0df90f314a1454b4d7",
+  "channelName": "Code with Shresth",
+  "description": "Coding tutorials and tech reviews",
+  "owner": "6987a9184b87fbcfc6e92303",
+  "channelBanner": "https://example.com/banner.png",
+  "subscribers": 0,
+  "createdAt": "2026-02-07T21:13:49.128Z",
+  "updatedAt": "2026-02-07T21:13:49.128Z",
+  "__v": 0
+}
