@@ -228,6 +228,7 @@ const VideoPlayer = () => {
       {effect === "subscribe" && <div className="effect">🔔</div>}
     </div>
   );
+  
 };
 
 
