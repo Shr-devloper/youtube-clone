@@ -57,7 +57,8 @@ router.post("/", protect, async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const videos = await Video.find()
-      .populate("channel", "channelName")
+      .populate("channel", "channelName subscribers")
+
       .populate("uploader", "username")
       .sort({ createdAt: -1 });
 
@@ -127,6 +128,24 @@ router.delete("/:id", protect, async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+});
+
+router.put("/:id/like", protect, async (req, res) => {
+  const video = await Video.findByIdAndUpdate(
+    req.params.id,
+    { $inc: { likes: 1 } },
+    { new: true }
+  );
+  res.json(video);
+});
+
+router.put("/:id/dislike", protect, async (req, res) => {
+  const video = await Video.findByIdAndUpdate(
+    req.params.id,
+    { $inc: { dislikes: 1 } },
+    { new: true }
+  );
+  res.json(video);
 });
 
 export default router;
