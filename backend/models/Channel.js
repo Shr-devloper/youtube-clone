@@ -5,29 +5,24 @@ const channelSchema = new mongoose.Schema(
     channelName: {
       type: String,
       required: true,
-      trim: true,
     },
-    description: {
-      type: String,
-      default: "",
-    },
+    description: String,
+    channelBanner: String,
     owner: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
     },
-    channelBanner: {
-      type: String,
-      default: "",
-    },
-    subscribers: {
-      type: Number,
-      default: 0,
-    },
+
+    // 🔥 THIS IS THE FIX
+    subscribers: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
   },
   { timestamps: true }
 );
 
-const Channel = mongoose.model("Channel", channelSchema);
-
-export default Channel;
+export default mongoose.model("Channel", channelSchema);
