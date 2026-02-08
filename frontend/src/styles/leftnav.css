@@ -1,0 +1,22 @@
+.leftnav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 8px;
+}
+
+.nav-item {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.nav-item.active {
+  background: #f2f2f2;
+  border-radius: 10px;
+}

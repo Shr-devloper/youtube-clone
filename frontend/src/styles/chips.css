@@ -1,0 +1,30 @@
+.chips-row {
+  padding: 12px 24px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: white;
+}
+
+
+.chip {
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #f2f2f2;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.chip.active {
+  background: black;
+  color: white;
+}
+
+/* Mobile only: allow scroll */
+@media (max-width: 768px) {
+  .chips-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+}

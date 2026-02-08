@@ -1,72 +1,32 @@
 import { useEffect, useState } from "react";
 import api from "../services/api";
 import VideoCard from "../components/VideoCard";
-import "../styles/video.css";
-
-const categories = [
-  "All",
-  "Music",
-  "Gaming",
-  "Education",
-  "News",
-  "Technology",
-];
+import ChipsRow from "../components/ChipsRow";
+import "../styles/home.css";
+import { useSearch } from "../context/SearchContext";
 
 const Home = () => {
   const [videos, setVideos] = useState([]);
-
-  const [activeCategory, setActiveCategory] = useState("All");
-
-const filteredVideos =
-  activeCategory === "All"
-    ? videos
-    : videos.filter((v) => v.category === activeCategory);
+const { searchTerm } = useSearch();
 
   useEffect(() => {
-    const fetchVideos = async () => {
-      try {
-        const res = await api.get("/videos");
-        setVideos(res.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchVideos();
+    api.get("/videos").then(res => setVideos(res.data));
   }, []);
-
-  <div className="filters">
-  {categories.map((cat) => (
-    <button
-      key={cat}
-      className={cat === activeCategory ? "active" : ""}
-      onClick={() => setActiveCategory(cat)}
-    >
-      {cat}
-    </button>
-  ))}
-</div>
+const filteredVideos = videos.filter((video) =>
+  video.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  video.description.toLowerCase().includes(searchTerm.toLowerCase())
+);
 
   return (
-    <>
-    <div className="filters">
-  {categories.map((cat) => (
-    <button
-      key={cat}
-      className={cat === activeCategory ? "active" : ""}
-      onClick={() => setActiveCategory(cat)}
-    >
-      {cat}
-    </button>
-  ))}
-</div>
+    <div className="home">
+      <ChipsRow />
+      <div className="video-grid">
+      {filteredVideos.map(video => (
+  <VideoCard key={video._id} video={video} />
+))}
 
-    <div className="video-grid">
-      {videos.map((video) => (
-        <VideoCard key={video._id} video={video} />
-      ))}
+      </div>
     </div>
-    </>
   );
 };
 

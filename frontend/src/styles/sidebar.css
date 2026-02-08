@@ -1,7 +1,7 @@
 .sidebar {
-  width: 240px;
-  background: #202020;
-  color: white;
+  width: 130px;
+  background: #ffffff;
+  color: rgb(10, 5, 5);
   height: calc(100vh - 56px);
   position: fixed;
   top: 56px;
@@ -16,7 +16,7 @@
 }
 
 .sidebar p:hover {
-  background: #383838;
+  background: #c1baba;
 }
 
 /* Mobile */
