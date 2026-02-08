@@ -6,6 +6,7 @@ import "../styles/home.css";
 import { useSearch } from "../context/SearchContext";
 
 const Home = () => {
+  
   const [videos, setVideos] = useState([]);
 const { searchTerm } = useSearch();
 
