@@ -1,7 +1,6 @@
-import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Sidebar from "./components/Sidebar";
+import LeftNav from "./components/LeftNav";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -9,16 +8,14 @@ import VideoPlayer from "./pages/VideoPlayer";
 import Channel from "./pages/Channel";
 
 function App() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
   return (
-    <Router>
-      <Header toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
+    <>
+      <Header />
 
-      <div className="layout">
-        <Sidebar open={sidebarOpen} close={() => setSidebarOpen(false)} />
+      <div className="page">
+        <LeftNav />
 
-        <main className="content">
+        <div className="page-content">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
@@ -26,10 +23,11 @@ function App() {
             <Route path="/video/:id" element={<VideoPlayer />} />
             <Route path="/channel" element={<Channel />} />
           </Routes>
-        </main>
+        </div>
       </div>
-    </Router>
+    </>
   );
 }
+
 
 export default App;

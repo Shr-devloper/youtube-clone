@@ -1,20 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
+/* Header offset */
 body {
-  font-family: "Roboto", Arial, sans-serif;
-  background-color: #f9f9f9;
+  padding-top: 56px;
 }
-.layout {
+
+/* MAIN PAGE LAYOUT */
+.page {
   display: flex;
+  width: 100%;
 }
 
-.content {
+/* LEFT NAV */
+.leftnav {
+  width: 72px;
+  flex-shrink: 0;
+  background: white;
+  border-right: 1px solid #e5e5e5;
+}
+
+/* CONTENT */
+.page-content {
   flex: 1;
-  margin-top: 56px;
-  padding-left: 240px;
-}
-
-/* Tablet & Mobile */
-@media (max-width: 1023px) {
-  .content {
-    padding-left: 0;
-  }
+  min-width: 0;   /*  THIS PREVENTS GAPS */
 }
